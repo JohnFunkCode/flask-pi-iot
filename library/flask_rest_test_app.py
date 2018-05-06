@@ -6,19 +6,11 @@ import requests
 
 app = Flask(__name__)
 
-@app.route('/json')
-def my_json_microservice():
-    return jsonify({'Hello':'World'})
-
 @app.route('/test', methods=['POST','GET'])
 def my_test():
     print("/test")
-    #r = requests.get("http://127.0.0.1:8080/json")
-    #print(r.content)
-    #return r.content
     print(request)
     print(request.form)
-    print(request.form['key'])
     return("hello")
 
 @app.route('/yaml')
