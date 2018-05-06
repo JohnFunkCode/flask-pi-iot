@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Individual LEDs</title>
+<!--<link href="piled.css" rel="stylesheet" type="text/css">-->
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/piled.css') }}">
+</head>
+<!doctype html>
+<html>
+
+
+<body>
+	
+<page class="wrapper">	
+<header class="header">Control any Individual LED directly
+<ul class="navigation">
+		<li><a href="index.html">Home</a></li>
+		<li><a href="individual.html">Individual</a></li>
+		<li><a href="group.html">Group</a></li>
+		<li><a href="patterns.html">Patterns</a></li>
+</ul>
+</header>
+
+<main-content class="main">
+   <form action="individual.html" method="post">
+	 LED Number:  <input type="text" name="led-number">
+	 <input type="radio" name="led-state" value="on">On
+	 <input type="radio" name="led-state" value="off" checked>Off
+	 </br>
+	 <input class="button" type="submit" name="submit" value="Submit">
+	</form>
+</main-content>
+	
+	
+<footer class="footer">Footer</footer>
+</page>
+	
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Groups of LEDs</title>
+<!--<link href="piled.css" rel="stylesheet" type="text/css">-->
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/piled.css') }}">
+</head>
+
+<body>
+
+<page class="wrapper">	
+<header class="header">Control the group of LEDs
+<ul class="navigation">
+		<li><a href="index.html">Home</a></li>
+		<li><a href="individual.html">Individual</a></li>
+		<li><a href="group.html">Group</a></li>
+		<li><a href="patterns.html">Patterns</a></li>
+</ul>
+</header>
+
+<main-content class="main">
+   <form action="group.html" method="post">
+	 LED 1:
+	 <input type="radio" name="led1-state" value="on">On
+	 <input type="radio" name="led1-state" value="off" checked>Off
+	 </br>
+	 LED 2:
+	 <input type="radio" name="led2-state" value="on">On
+	 <input type="radio" name="led2-state" value="off" checked>Off
+	 </br>
+	 LED 3:
+	 <input type="radio" name="led3-state" value="on">On
+	 <input type="radio" name="led3-state" value="off" checked>Off
+	 </br>
+	 LED 4:
+	 <input type="radio" name="led4-state" value="on">On
+	 <input type="radio" name="led4-state" value="off" checked>Off
+	 </br>
+	 LED 5:
+	 <input type="radio" name="led5-state" value="on">On
+	 <input type="radio" name="led5-state" value="off" checked>Off
+	 </br>
+	 LED 6:
+	 <input type="radio" name="led6-state" value="on">On
+	 <input type="radio" name="led6-state" value="off" checked>Off
+	 </br>
+	 LED 7:
+	 <input type="radio" name="led7-state" value="on">On
+	 <input type="radio" name="led7-state" value="off" checked>Off
+	 </br>
+	 LED 8:
+	 <input type="radio" name="led8-state" value="on">On
+	 <input type="radio" name="led8-state" value="off" checked>Off
+	 </br>
+	
+	 <input class="button" type="submit" name="submit" value="Submit">
+	</form>
+</main-content>
+	
+	
+<footer class="footer">Footer</footer>
+</page>
+
+</body>
+</html>
