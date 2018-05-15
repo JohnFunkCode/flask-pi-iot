@@ -11,4 +11,4 @@ while True:
     print('X={0}, Y={1}, Z={2}'.format(x, y, z))
     ts=datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
     aData={'timestamp':ts,'x':x,'y':y,'z':z}
-    r=requests.post('http://10.10.10.14:8080/test',data=aData)
+    r=requests.post('http://192.168.137.1/test',data=aData)

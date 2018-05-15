@@ -24,25 +24,25 @@ def my_yaml_microservice():
 def main_page():
     return render_template('index.html')
 
-@app.route('/individual.html',methods=['POST','GET'])
+@app.route('/johnpi.html',methods=['POST','GET'])
 def individual_page():
     if request.method == 'POST':
         print("group got a post")
         print(request.form)
-    return render_template('individual.html')
+    return render_template('johnpi.html')
 
-@app.route('/group.html',methods=['POST','GET'])
+@app.route('/meganpi.html',methods=['POST','GET'])
 def group_page():
     if request.method == 'POST':
         print("group got a post")
         print(request.form)
-    return render_template('group.html')
+    return render_template('meganpi.html')
 
 
-@app.route('/patterns.html',methods=['POST','GET'])
+@app.route('/katiepi.html',methods=['POST','GET'])
 def patterns_page():
     if request.method == 'POST':
         print("patterns got a post")
         print(request.form)
 
-    return render_template('patterns.html')
+    return render_template('katiepi.html')
