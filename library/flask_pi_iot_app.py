@@ -51,4 +51,4 @@ def david_page():
     if request.method == 'POST':
         print("DavidPi got a post")
         print(request.form)
-    return render_template('katiepi.html')
+    return render_template('davidpi.html')
