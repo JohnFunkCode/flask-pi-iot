@@ -25,24 +25,30 @@ def main_page():
     return render_template('index.html')
 
 @app.route('/johnpi.html',methods=['POST','GET'])
-def individual_page():
+def john_page():
     if request.method == 'POST':
-        print("group got a post")
+        print("JohnPi got a post")
         print(request.form)
     return render_template('johnpi.html')
 
 @app.route('/meganpi.html',methods=['POST','GET'])
-def group_page():
+def megan_page():
     if request.method == 'POST':
-        print("group got a post")
+        print("MeganPi got a post")
         print(request.form)
     return render_template('meganpi.html')
 
 
 @app.route('/katiepi.html',methods=['POST','GET'])
-def patterns_page():
+def katie_page():
     if request.method == 'POST':
-        print("patterns got a post")
+        print("KatiePi got a post")
         print(request.form)
+    return render_template('katiepi.html')
 
+@app.route('/davidpi.html',methods=['POST','GET'])
+def david_page():
+    if request.method == 'POST':
+        print("DavidPi got a post")
+        print(request.form)
     return render_template('katiepi.html')
