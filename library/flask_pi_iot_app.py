@@ -24,25 +24,31 @@ def my_yaml_microservice():
 def main_page():
     return render_template('index.html')
 
-@app.route('/individual.html',methods=['POST','GET'])
-def individual_page():
+@app.route('/johnpi.html',methods=['POST','GET'])
+def john_page():
     if request.method == 'POST':
-        print("group got a post")
+        print("JohnPi got a post")
         print(request.form)
-    return render_template('individual.html')
+    return render_template('johnpi.html')
 
-@app.route('/group.html',methods=['POST','GET'])
-def group_page():
+@app.route('/meganpi.html',methods=['POST','GET'])
+def megan_page():
     if request.method == 'POST':
-        print("group got a post")
+        print("MeganPi got a post")
         print(request.form)
-    return render_template('group.html')
+    return render_template('meganpi.html')
 
 
-@app.route('/patterns.html',methods=['POST','GET'])
-def patterns_page():
+@app.route('/katiepi.html',methods=['POST','GET'])
+def katie_page():
     if request.method == 'POST':
-        print("patterns got a post")
+        print("KatiePi got a post")
         print(request.form)
+    return render_template('katiepi.html')
 
-    return render_template('patterns.html')
+@app.route('/davidpi.html',methods=['POST','GET'])
+def david_page():
+    if request.method == 'POST':
+        print("DavidPi got a post")
+        print(request.form)
+    return render_template('davidpi.html')
