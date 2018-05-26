@@ -1,7 +1,7 @@
 # Import the ADXL345 module.
 
 import unittest
-import pi_accelerometer_IOT_client
+import import pi_accelerometer_IOT_client as piac
 
 class test_PiAccelerometerIOTClient(unittest.TestCase):
 
@@ -9,9 +9,10 @@ class test_PiAccelerometerIOTClient(unittest.TestCase):
         return
 
     def test_getserial(self):
-        PiAccererometer = PiAccelerometerIOTClient()
-        serial=PiAccererometer.getserial()
+        apic = piac.PiAccelerometerIOTClient()
+        serial=apic.getserial()
         self.assertTrue(len(serial)>1)
 
 if __name__ == '__main__':
     unittest.main()
+
