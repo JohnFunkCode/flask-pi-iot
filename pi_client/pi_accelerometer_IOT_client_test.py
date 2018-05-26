@@ -1,7 +1,7 @@
 # Import the ADXL345 module.
 
 import unittest
-import pi_accelerometer_IOT_client
+import pi_accelerometer_IOT_client as pi_accelarometer
 
 class test_PiAccelerometerIOTClient(unittest.TestCase):
 
