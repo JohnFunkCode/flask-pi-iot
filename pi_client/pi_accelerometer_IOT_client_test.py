@@ -16,6 +16,7 @@ class test_PiAccelerometerIOTClient(unittest.TestCase):
     def test_read_accelerometer(self):
         apic = piac.PiAccelerometerIOTClient()
         x, y, z = apic._accel.read()
+
         self.assertTrue(x!=0)
         self.assertTrue(y!=0)
         self.assertTrue(z!=0)
