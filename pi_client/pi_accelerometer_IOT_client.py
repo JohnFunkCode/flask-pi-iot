@@ -9,7 +9,7 @@ class PiAccelerometerIOTClient:
 
     _accel = Adafruit_ADXL345.ADXL345()
     _serial = ''
-    _server_destinations = ['http://jpf-flask-pi-iot.cfapps.io']
+    _server_destinations = ['http://jpf-flask-pi-iot.cfapps.io/test']
 
     def getserial(self):
       # Extract serial from cpuinfo file
@@ -27,13 +27,27 @@ class PiAccelerometerIOTClient:
     def get_server_destinations(self):
         return self._server_destinations
 
+    def test_servers(self):
+        print("Testing reaching the following servers:")
+        # send a simple get to the list of servers
+        for server in self._server_destinations:
+            print("Posting to {0}".format(server))
+            r = requests.get(server)
+
     def post_data(self):
         while True:
+            # get the data
             x,y,z=self._accel.read()
             print('X={0}, Y={1}, Z={2}'.format(x, y, z))
+
+            #format it to send to server
             ts=datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
             aData={'serial-no':self._serial,'timestamp':ts,'x':x,'y':y,'z':z}
-            r=requests.post('http://192.168.137.179/test',data=aData)
+
+            #send it to the list of servers
+            for server in self._server_destinations:
+                print("Posting to {0}".format(server))
+                r=requests.post(server,data=aData)
 
     def __init__(self):
         _serial = self.getserial()
@@ -45,4 +59,7 @@ if __name__ == "__main__":
     PiAccererometer=PiAccelerometerIOTClient()
 
     print('My serial number is {0}'.format(PiAccererometer.getserial()))
+
+    PiAccelerometerIOTClient.test_servers()
+
     PiAccererometer.post_data()
