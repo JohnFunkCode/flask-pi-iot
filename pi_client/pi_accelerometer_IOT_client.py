@@ -9,6 +9,7 @@ class PiAccelerometerIOTClient:
 
     _accel = Adafruit_ADXL345.ADXL345()
     _serial = ''
+    _server_destinations=list()
 
     def getserial(self):
       # Extract serial from cpuinfo file
@@ -23,6 +24,8 @@ class PiAccelerometerIOTClient:
         cpuserial = "ERROR000000000"
       return cpuserial
 
+    def get_server_destinations(self):
+        return self._server_destinations
 
     def post_data(self):
         while True:
@@ -35,6 +38,7 @@ class PiAccelerometerIOTClient:
     def __init__(self):
         _serial = self.getserial()
         _accel = Adafruit_ADXL345.ADXL345()
+        _server_destinations=['http://jpf-flask-pi-iot.cfapps.io']
 
 
 if __name__ == "__main__":
@@ -42,5 +46,3 @@ if __name__ == "__main__":
 
     print('My serial number is {0}'.format(PiAccererometer.getserial()))
     PiAccererometer.post_data()
-
-
