@@ -38,6 +38,7 @@ class PiAccelerometerIOTClient:
     def __init__(self):
         _serial = self.getserial()
         _accel = Adafruit_ADXL345.ADXL345()
+        _server_destinations = ['http://jpf-flask-pi-iot.cfapps.io']
 
 
 if __name__ == "__main__":
