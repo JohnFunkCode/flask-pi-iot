@@ -9,7 +9,7 @@ class PiAccelerometerIOTClient:
 
     _accel = Adafruit_ADXL345.ADXL345()
     _serial = ''
-    _server_destinations = ['http://jpf-flask-pi-iot.cfapps.io/test']
+    _server_destinations = ['http://jpf-flask-pi-iot.cfapps.io/test','http://10.10.10.14/test']
 
     def getserial(self):
       # Extract serial from cpuinfo file
@@ -52,7 +52,7 @@ class PiAccelerometerIOTClient:
     def __init__(self):
         _serial = self.getserial()
         _accel = Adafruit_ADXL345.ADXL345()
-        _server_destinations = ['http://jpf-flask-pi-iot.cfapps.io']
+        _server_destinations = ['http://jpf-flask-pi-iot.cfapps.io','10.10.10.14/test']
 
 
 if __name__ == "__main__":
