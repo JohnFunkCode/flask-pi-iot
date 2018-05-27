@@ -27,7 +27,7 @@ class test_PiAccelerometerIOTClient(unittest.TestCase):
         '''simple test to make sure it returns a non-empty list'''
         apic = piac.PiAccelerometerIOTClient()
         url_list=apic.get_server_destinations()
-        print("Server URL List:{0}".form(url_list))
+        print("Server URL List:{0}".format(url_list))
         self.assertTrue(len(url_list) > 0)
 
 if __name__ == '__main__':
