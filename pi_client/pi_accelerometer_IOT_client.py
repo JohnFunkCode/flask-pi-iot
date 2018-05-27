@@ -60,6 +60,6 @@ if __name__ == "__main__":
 
     print('My serial number is {0}'.format(PiAccererometer.getserial()))
 
-    PiAccelerometerIOTClient.test_servers()
+    PiAccererometer.test_servers()
 
     PiAccererometer.post_data()
