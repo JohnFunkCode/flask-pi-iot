@@ -44,18 +44,19 @@ class PiAccelerometerIOTClient:
 
     def get_valid_server_destinations(self):
         valid_server_list = self.get_server_destinations()
+        print("Testing connections to server destinations...")
         for server in valid_server_list:
             if(self.is_server_available(server)==False):
                 self._invalid_server_destinations.append(server)
         # remove invalid servers - we didn't do it in the previous for loop because it messes up the iterator
-        print("Removing the following servers that returned errors:")
+        #print("Removing the following servers that returned errors:")
         for server in self._invalid_server_destinations:
             valid_server_list.remove(server)
-            print(" {0}".format(server))
+            #print(" {0}".format(server))
         return valid_server_list
 
     def is_server_available(self,server):
-        print("Testing connection to the following server: {0}".format(server))
+        #print("Testing connection to the following server: {0}".format(server))
         # send a simple get to the list of servers
         try:
             r = requests.get(server)
