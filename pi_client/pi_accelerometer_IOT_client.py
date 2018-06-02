@@ -85,9 +85,8 @@ class PiAccelerometerIOTClient:
                 try:
                     print("  Posting to {0}".format(server))
                     r=requests.post(server,data=aData)
-                except:
-                    requests.exceptions.RequestException:
-                        print("   Server: {0} raises an exception".format(server))
+                except requests.exceptions.RequestException:
+                    print("   Server: {0} raises an exception".format(server))
                 if(r.status_code!=200):
                     break
             if(r.status_code!=200):
