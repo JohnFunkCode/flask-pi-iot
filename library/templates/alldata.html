@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>JohnPi</title>
+<title>All Accelerometer Data</title>
 <!--<link href="piled.css" rel="stylesheet" type="text/css">-->
 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/piled.css') }}">
 </head>
@@ -13,9 +13,10 @@
 <body>
 	
 <page class="wrapper">	
-<header class="header">JohnPi Accelerometer Data
+<header class="header">All Accelerometer Data
 <ul class="navigation">
 		<li><a href="index.html">Home</a></li>
+		<li><a href="alldata.html">All Data</a></li>
 		<li><a href="meganpi.html">Megan</a></li>
 		<li><a href="johnpi.html">John</a></li>
 		<li><a href="katiepi.html">Katie</a></li>
@@ -25,7 +26,25 @@
 
 <main-content class="main">
    <p>
-	   This page is in progress: Please check back later.
+	   Total number of readings is: {{data.__len__()}}
+	   	<table border="1" width="100%">
+			<tr>
+				<th>serial-no</th>
+				<th>timestamp</th>
+				<th>x</th>
+				<th>y</th>
+				<th>z</th>
+			</tr>
+		{% for reading in data %}
+			<tr>
+				<td>{{reading['serial-no']}}</td>
+				<td>{{reading['timestamp']}}</td>
+				<td>{{reading['x']}}</td>
+				<td>{{reading['y']}}</td>
+				<td>{{reading['z']}}</td>
+			</tr>
+		{% endfor %}
+		</table>
    </p>
 </main-content>
 	
