@@ -82,8 +82,16 @@ class PiAccelerometerIOTClient:
 
             #send it to the list of servers
             for server in self._valid_server_destinations:
-                print("  Posting to {0}".format(server))
-                r=requests.post(server,data=aData)
+                try:
+                    print("  Posting to {0}".format(server))
+                    r=requests.post(server,data=aData)
+                except
+                    requests.exceptions.RequestException:
+                        print("   Server: {0} raises an exception".format(server))
+                if(r.status_code!=200):
+                    break
+            if(r.status_code!=200):
+                break
 
     def __init__(self):
         print("Initializing")
