@@ -25,7 +25,7 @@ class PiAccelerometerIOTClient:
       return cpuserial
 
     def get_server_destinations(self):
-        return self._server_destinations
+        return self._defined_server_destinations
 
     def print_server_destinations(self):
         print("Here is the list of defined server destinations:")
