@@ -41,8 +41,8 @@ class test_PiAccelerometerIOTClient(unittest.TestCase):
     def test_is_server_available(self):
         print("**test_is_server_available")
         apic = piac.PiAccelerometerIOTClient()
-        self.assertFalse(apic.is_server_available("http://99.99.99.99:99"))
-        self.assertTrue(apic.is_server_available("http://jpf-flask-pi-iot/test"))
+        #self.assertFalse(apic.is_server_available("http://10.2.2.2:2"))
+        self.assertTrue(apic.is_server_available("http://jpf-flask-pi-iot.cfapps.io/test"))
 
     def test_print_invalid_server_destinations(self):
         print("**test_print_invalid_server_destinations")
