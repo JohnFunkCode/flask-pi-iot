@@ -116,4 +116,6 @@ if __name__ == "__main__":
 
     print('My serial number is {0}'.format(PiAccererometer.getserial()))
     print("beginning to post data...")
-    PiAccererometer.post_data()
+    while True:
+        PiAccererometer.post_data()
+        PiAccelerometerIOTClient.get_valid_server_destinations()
