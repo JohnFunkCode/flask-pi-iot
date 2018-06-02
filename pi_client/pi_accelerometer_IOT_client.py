@@ -74,8 +74,12 @@ class PiAccelerometerIOTClient:
 
     def post_data(self):
         keep_posting=True
+        number_of_readings=0
         while(keep_posting==True):
             # get the data
+            number_of_readings+=1
+            if(number_of_readings>99)
+                keep_posting=False
             x,y,z=self._accel.read()
             #format it to send to server
             ts=datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
