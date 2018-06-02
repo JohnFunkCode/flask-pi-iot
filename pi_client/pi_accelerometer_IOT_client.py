@@ -27,12 +27,24 @@ class PiAccelerometerIOTClient:
     def get_server_destinations(self):
         return self._server_destinations
 
+    def print_server_destinations(self):
+        print("Here is the list of defined server destinations:")
+        for server in self.get_server_destinations():
+            print(" {0}".format(server))
+
+    def print_valid_server_destinations(self):
+        print("Here is the list of valid server destinations:")
+        for server in self.get_server_destinations():
+            print(" {0}".format(server))
+
     def get_valid_server_destinations(self):
+        self.print_server_destinations()
         valid_server_list = self.get_server_destinations()
         for server in valid_server_list:
             if(self.is_server_available(server)==False):
                 valid_server_list.remove(server)
                 print("Removed{0} ".format(server))
+        self.print_valid_server_destinations()
         return valid_server_list
 
     def is_server_available(self,server):
