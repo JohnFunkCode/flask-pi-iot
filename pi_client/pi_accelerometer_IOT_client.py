@@ -108,6 +108,7 @@ class PiAccelerometerIOTClient:
         self._invalid_server_destinations=list()
 
         self._valid_server_destinations = self.get_valid_server_destinations()
+        self.print_server_destinations()
         self.print_invalid_server_destinations()
         self.print_valid_server_destinations()
 
