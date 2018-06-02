@@ -120,7 +120,7 @@ if __name__ == "__main__":
     print("beginning to post data...")
     while True:
         PiAccererometer.post_data()
-        PiAccererometer.print_server_destinations()
         print("Re-evaluating servers...")
-        PiAccererometer.print_valid_server_destinations()
+        PiAccererometer.print_server_destinations()
         PiAccererometer.get_valid_server_destinations()
+        PiAccererometer.print_valid_server_destinations()
