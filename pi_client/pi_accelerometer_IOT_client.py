@@ -43,6 +43,7 @@ class PiAccelerometerIOTClient:
             print(" {0}".format(server))
 
     def get_valid_server_destinations(self):
+        self._invalid_server_destinations=list()
         valid_server_list = self.get_server_destinations()
         print("Testing connections to server destinations...")
         for server in valid_server_list:
@@ -118,4 +119,5 @@ if __name__ == "__main__":
     print("beginning to post data...")
     while True:
         PiAccererometer.post_data()
+        print("Re-evaluating servers...")
         PiAccererometer.get_valid_server_destinations()
