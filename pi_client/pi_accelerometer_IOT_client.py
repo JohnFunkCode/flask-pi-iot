@@ -118,4 +118,4 @@ if __name__ == "__main__":
     print("beginning to post data...")
     while True:
         PiAccererometer.post_data()
-        PiAccelerometerIOTClient.get_valid_server_destinations()
+        PiAccererometer.get_valid_server_destinations()
