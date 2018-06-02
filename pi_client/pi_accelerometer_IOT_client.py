@@ -71,7 +71,10 @@ class PiAccelerometerIOTClient:
         while True:
             # get the data
             x,y,z=self._accel.read()
-            print('X={0}, Y={1}, Z={2}'.format(x, y, z))
+            #format it to send to server
+            ts=datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
+
+            print('{0}: X={1}, Y={1}, Z={1}'.format(ts,x, y, z))
 
             #format it to send to server
             ts=datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
@@ -79,7 +82,7 @@ class PiAccelerometerIOTClient:
 
             #send it to the list of servers
             for server in self._valid_server_destinations:
-                print("Posting to {0}".format(server))
+                print("  Posting to {0}".format(server))
                 r=requests.post(server,data=aData)
 
     def __init__(self):
@@ -104,5 +107,5 @@ if __name__ == "__main__":
     PiAccererometer=PiAccelerometerIOTClient()
 
     print('My serial number is {0}'.format(PiAccererometer.getserial()))
-
+    print("beginning to post data...")
     PiAccererometer.post_data()
