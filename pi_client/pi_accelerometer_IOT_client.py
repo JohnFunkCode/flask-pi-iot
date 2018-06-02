@@ -55,6 +55,7 @@ class PiAccelerometerIOTClient:
         for server in self._invalid_server_destinations:
             valid_server_list.remove(server)
             print("** removing {0}".format(server))
+        self._valid_server_destinations=valid_server_list[:]
         return valid_server_list
 
     def is_server_available(self,server):
