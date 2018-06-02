@@ -44,7 +44,7 @@ class PiAccelerometerIOTClient:
 
     def get_valid_server_destinations(self):
         valid_server_list = self.get_server_destinations()
-        for server in self._valid_server_destinations:
+        for server in valid_server_list:
             if(self.is_server_available(server)==False):
                 self._invalid_server_destinations.append(server)
         # remove invalid servers - we didn't do it in the previous for loop because it messes up the iterator
@@ -91,8 +91,12 @@ class PiAccelerometerIOTClient:
                                      'http://megan-flask-pi-iot.cfapps.io/test',
                                      'http://david-flask-pi-iot.cfapps.io/test',
                                      'http://shane-flask-pi-iot.cfapps.io/test']
+        self.print_server_destinations()
         self._invalid_server_destinations=list()
+
         self._valid_server_destinations = self.get_valid_server_destinations()
+        self.print_invalid_server_destinations()
+        self.print_valid_server_destinations()
 
 
 if __name__ == "__main__":
