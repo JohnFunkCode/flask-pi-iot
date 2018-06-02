@@ -83,6 +83,7 @@ class PiAccelerometerIOTClient:
             aData={'serial-no':self._serial,'timestamp':ts,'x':x,'y':y,'z':z}
 
             #send it to the list of servers
+            r=None
             for server in self._valid_server_destinations:
                 try:
                     print("  Posting to {0}".format(server))
