@@ -7,9 +7,9 @@ import datetime
 class PiAccelerometerIOTClient:
     '''A class to represent the accelerometer circuit board we built for the raspberry pi'''
 
-    _accel = Adafruit_ADXL345.ADXL345()
-    _serial = ''
-    _server_destinations = ['http://jpf-flask-pi-iot.cfapps.io/test','http://10.10.10.14:8080/test']
+    #_accel = Adafruit_ADXL345.ADXL345()
+    #_serial = ''
+    #_server_destinations = ['http://jpf-flask-pi-iot.cfapps.io/test','http://10.10.10.14:8080/test']
 
     def getserial(self):
       # Extract serial from cpuinfo file
