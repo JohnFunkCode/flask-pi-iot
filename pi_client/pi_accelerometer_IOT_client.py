@@ -29,17 +29,17 @@ class PiAccelerometerIOTClient:
 
     def print_server_destinations(self):
         print("Here is the list of defined server destinations:")
-        for server in self.get_server_destinations():
+        for server in self._server_destinations:
             print(" {0}".format(server))
 
     def print_valid_server_destinations(self):
         print("Here is the list of valid server destinations:")
-        for server in self.get_valid_server_destinations():
+        for server in self._valid_server_destinations:
             print(" {0}".format(server))
 
     def print_invalid_server_destinations(self):
         print("Here is the list of invalid server destinations:")
-        for server in self.get_valid_server_destinations():
+        for server in self._invalid_server_destinations:
             print(" {0}".format(server))
 
     def get_valid_server_destinations(self):
