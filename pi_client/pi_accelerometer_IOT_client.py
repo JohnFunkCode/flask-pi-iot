@@ -50,9 +50,10 @@ class PiAccelerometerIOTClient:
                 r=requests.post(server,data=aData)
 
     def __init__(self):
-        _serial = self.getserial()
-        _accel = Adafruit_ADXL345.ADXL345()
-        _server_destinations = ['http://jpf-flask-pi-iot.cfapps.io/test','http://10.10.10.14:8080/test']
+        print("Initializing")
+        self._serial_serial = self.getserial()
+        self._accel = Adafruit_ADXL345.ADXL345()
+        self._server_destinations = ['http://jpf-flask-pi-iot.cfapps.io/test','http://10.10.10.14:8080/test']
 
 
 if __name__ == "__main__":
