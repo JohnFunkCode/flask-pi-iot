@@ -68,7 +68,8 @@ class PiAccelerometerIOTClient:
             return False
 
     def post_data(self):
-        while True:
+        keep_posting=True
+        while(keep_posting==True):
             # get the data
             x,y,z=self._accel.read()
             #format it to send to server
@@ -87,10 +88,10 @@ class PiAccelerometerIOTClient:
                     r=requests.post(server,data=aData)
                 except requests.exceptions.RequestException:
                     print("   Server: {0} raises an exception".format(server))
+                    keep_posting = False
                 if(r.status_code!=200):
+                    keep_posting=False
                     break
-            if(r.status_code!=200):
-                break
 
     def __init__(self):
         print("Initializing")
