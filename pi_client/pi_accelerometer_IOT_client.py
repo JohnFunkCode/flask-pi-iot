@@ -25,7 +25,7 @@ class PiAccelerometerIOTClient:
       return cpuserial
 
     def get_server_destinations(self):
-        return self._defined_server_destinations
+        return self._defined_server_destinations.copy()
 
     def print_server_destinations(self):
         print("Here is the list of defined server destinations:")
@@ -44,7 +44,7 @@ class PiAccelerometerIOTClient:
 
     def get_valid_server_destinations(self):
         self._invalid_server_destinations=list()
-        valid_server_list = self.get_server_destinations().copy()
+        valid_server_list = self.get_server_destinations()
         print("Testing connections to server destinations...")
         for server in valid_server_list:
             if(self.is_server_available(server)==False):
