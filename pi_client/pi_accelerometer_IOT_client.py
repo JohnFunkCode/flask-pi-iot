@@ -37,31 +37,33 @@ class PiAccelerometerIOTClient:
         for server in self.get_valid_server_destinations():
             print(" {0}".format(server))
 
+    def print_invalid_server_destinations(self):
+        print("Here is the list of invalid server destinations:")
+        for server in self.get_valid_server_destinations():
+            print(" {0}".format(server))
+
     def get_valid_server_destinations(self):
-        self.print_server_destinations()
-        self._valid_server_destinations = self.get_server_destinations()
+        valid_server_list = self.get_server_destinations()
         for server in self._valid_server_destinations:
             if(self.is_server_available(server)==False):
                 self._invalid_server_destinations.append(server)
         # remove invalid servers - we didn't do it in the previous for loop because it messes up the iterator
         print("Removing the following servers that returned errors:")
         for server in self._invalid_server_destinations:
-            self._valid_server_destinations.remove(server)
+            valid_server_list.remove(server)
             print(" {0}".format(server))
-
-        self.print_valid_server_destinations()
         return valid_server_list
 
     def is_server_available(self,server):
-        print("Testing connection to the following server{0}: ".format(server))
+        print("Testing connection to the following server: {0}".format(server))
         # send a simple get to the list of servers
         try:
             r = requests.get(server)
         except requests.exceptions.RequestException:
-            print("Server: {0} raises an exception and will be removed from the list".format(server))
+            print("   Server: {0} raises an exception and will be removed from the list".format(server))
             return False
         if(r.status_code != 200):
-            print("Server: {0} returned an status code of {1} and will be removed from the list".format(server,r.status_code))
+            print("   Server: {0} returned an status code of {1} and will be removed from the list".format(server,r.status_code))
             return False
 
     def post_data(self):
