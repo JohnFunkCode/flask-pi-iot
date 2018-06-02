@@ -59,7 +59,7 @@ class PiAccelerometerIOTClient:
         return valid_server_list
 
     def is_server_available(self,server):
-        #print("Testing connection to the following server: {0}".format(server))
+        print("Testing connection to the following server: {0}".format(server))
         # send a simple get to the list of servers
         try:
             r = requests.get(server)
