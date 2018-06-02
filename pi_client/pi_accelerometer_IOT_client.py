@@ -61,11 +61,11 @@ class PiAccelerometerIOTClient:
         # send a simple get to the list of servers
         try:
             r = requests.get(server)
+            if (r.status_code != 200):
+                print("   Server: {0} returned an status code of {1} and will be removed from the list".format(server,r.status_code))
+                return False
         except requests.exceptions.RequestException:
             print("   Server: {0} raises an exception and will be removed from the list".format(server))
-            return False
-        if(r.status_code != 200):
-            print("   Server: {0} returned an status code of {1} and will be removed from the list".format(server,r.status_code))
             return False
 
     def post_data(self):
