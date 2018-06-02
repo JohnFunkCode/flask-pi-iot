@@ -65,7 +65,12 @@ class PiAccelerometerIOTClient:
         print("Initializing")
         self._serial = self.getserial()
         self._accel = Adafruit_ADXL345.ADXL345()
-        self._server_destinations = ['http://jpf-flask-pi-iot.cfapps.io/test','http://10.10.10.14:8080/test']
+        self._server_destinations = ['http://10.10.10.14:8080/test',
+                                     'http://jpf-flask-pi-iot.cfapps.io/test',
+                                     'http://katie-flask-pi-iot.cfapps.io/test',
+                                     'http://megan-flask-pi-iot.cfapps.io/test',
+                                     'http://david-flask-pi-iot.cfapps.io/test',
+                                     'http://shane-flask-pi-iot.cfapps.io/test']
         self._valid_server_destinations = self.get_valid_server_destinations()
 
 
