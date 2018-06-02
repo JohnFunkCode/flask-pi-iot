@@ -27,12 +27,24 @@ class PiAccelerometerIOTClient:
     def get_server_destinations(self):
         return self._server_destinations
 
-    def test_servers(self):
-        print("Testing reaching the following servers:")
+    def get_valid_server_destinations(self):
+        valid_server_list = self.get_server_destinations()
+        for server in valid_server_list:
+            if(self.is_server_available(server)==False):
+                valid_server_list.remove(server)
+                print("Removed{0} ".format(server))
+        return valid_server_list
+
+    def is_server_available(self,server):
+        print("Testing connection to the following server{0}:".format(server)))
         # send a simple get to the list of servers
-        for server in self._server_destinations:
-            print("Posting to {0}".format(server))
+        try:
             r = requests.get(server)
+        except requests.exceptions.RequestException:
+            print("Server {0} raises an exception".format(server))
+            return False
+        if r.status_code != 200:
+            return False
 
     def post_data(self):
         while True:
@@ -45,7 +57,7 @@ class PiAccelerometerIOTClient:
             aData={'serial-no':self._serial,'timestamp':ts,'x':x,'y':y,'z':z}
 
             #send it to the list of servers
-            for server in self._server_destinations:
+            for server in self._valid_server_destinations:
                 print("Posting to {0}".format(server))
                 r=requests.post(server,data=aData)
 
@@ -54,13 +66,12 @@ class PiAccelerometerIOTClient:
         self._serial = self.getserial()
         self._accel = Adafruit_ADXL345.ADXL345()
         self._server_destinations = ['http://jpf-flask-pi-iot.cfapps.io/test','http://10.10.10.14:8080/test']
+        self._valid_server_destinations = self.get_valid_server_destinations()
 
 
 if __name__ == "__main__":
     PiAccererometer=PiAccelerometerIOTClient()
 
     print('My serial number is {0}'.format(PiAccererometer.getserial()))
-
-    PiAccererometer.test_servers()
 
     PiAccererometer.post_data()
