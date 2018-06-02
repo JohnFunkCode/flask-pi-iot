@@ -29,7 +29,7 @@ class PiAccelerometerIOTClient:
 
     def print_server_destinations(self):
         print("Here is the list of defined server destinations:")
-        for server in self._server_destinations:
+        for server in self._defined_server_destinations:
             print(" {0}".format(server))
 
     def print_valid_server_destinations(self):
@@ -98,7 +98,7 @@ class PiAccelerometerIOTClient:
         print("Initializing")
         self._serial = self.getserial()
         self._accel = Adafruit_ADXL345.ADXL345()
-        self._server_destinations = ['http://10.10.10.14:8080/test',
+        self._defined_server_destinations = ['http://10.10.10.14:8080/test',
                                      'http://jpf-flask-pi-iot.cfapps.io/test',
                                      'http://katie-flask-pi-iot.cfapps.io/test',
                                      'http://megan-flask-pi-iot.cfapps.io/test',
