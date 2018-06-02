@@ -69,6 +69,7 @@ class PiAccelerometerIOTClient:
         except requests.exceptions.RequestException:
             print("   Server: {0} raises an exception and will be removed from the list".format(server))
             return False
+        print("Connection to {0} works".format(server))
         return True
 
     def post_data(self):
