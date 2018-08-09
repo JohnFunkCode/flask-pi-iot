@@ -123,6 +123,7 @@ class PiAccelerometerIOTClient:
 
 
 if __name__ == "__main__":
+    '''gets called if you run it from the command line'''
     PiAccererometer=PiAccelerometerIOTClient()
 
     print('My serial number is {0}'.format(PiAccererometer.getserial()))
